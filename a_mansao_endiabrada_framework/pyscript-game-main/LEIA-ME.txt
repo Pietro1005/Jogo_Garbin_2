@@ -1,0 +1,207 @@
+FRAMEWORK PYSCRIPT GAME JAM - V2
+=================================
+
+OBJETIVO
+--------
+Framework didático para jogos narrativos em Python executados
+diretamente no navegador com PyScript.
+
+A nova arquitetura substitui o terminal + input() por:
+- cenas;
+- botões;
+- estado do jogador;
+- interface HTML;
+- imagem/vídeo;
+- áudio;
+- vida;
+- inventário;
+- pontos;
+- múltiplos finais.
+
+ESTRUTURA
+---------
+framework_pyscript_gamejam_v2/
+|
+|-- index.html
+|-- main.py
+|-- INICIAR_JOGO.bat
+|-- LEIA-ME.txt
+|
+`-- assets/
+    |-- imagens/
+    |-- audios/
+    `-- videos/
+
+O QUE O ALUNO ALTERA
+--------------------
+Principalmente o arquivo main.py.
+
+As três áreas principais são:
+
+1. CONFIG
+   título, autor, capa, trilha inicial, vida etc.
+
+2. SCENES
+   cenas, textos, imagens, vídeos e opções.
+
+3. executar_acao()
+   regras especiais:
+   pegar itens, perder vida, verificar inventário,
+   alterar pontos e decidir finais.
+
+CENA SIMPLES
+------------
+"inicio": {
+    "title": "Início",
+    "image": "assets/imagens/inicio.jpg",
+    "text": "Você acorda em um lugar desconhecido.",
+    "options": [
+        ("Ir para a porta", "porta"),
+        ("Olhar pela janela", "janela"),
+    ],
+},
+
+IMAGEM
+------
+Use:
+
+"image": "assets/imagens/floresta.jpg"
+
+VÍDEO
+-----
+Use:
+
+"video": "assets/videos/introducao.mp4",
+"video_autoplay": False
+
+Se existir "video", ele substitui a imagem naquela cena.
+
+ÁUDIO
+-----
+A trilha inicial fica em CONFIG:
+
+"trilha_inicial": "assets/audios/trilha.mp3"
+
+Para trocar a música em uma cena:
+
+"audio": "assets/audios/batalha.mp3"
+
+Para parar o áudio em uma cena:
+
+"stop_audio": True
+
+Se a cena não tiver "audio" nem "stop_audio",
+a trilha atual continua tocando.
+
+VIDA
+----
+Use:
+
+perder_vida()
+
+ou:
+
+perder_vida(2)
+
+INVENTÁRIO
+----------
+Adicionar:
+
+adicionar_item("chave")
+
+Testar:
+
+if possui_item("chave"):
+    ...
+
+Remover:
+
+remover_item("chave")
+
+PONTOS
+------
+Use:
+
+ganhar_pontos(10)
+
+ou ao pegar item:
+
+adicionar_item("chave", pontos=10)
+
+OPÇÕES
+------
+Cada cena suporta até 4 opções:
+
+"options": [
+    ("Opção 1", "acao1"),
+    ("Opção 2", "acao2"),
+    ("Opção 3", "acao3"),
+    ("Opção 4", "acao4"),
+]
+
+AÇÕES NORMAIS
+-------------
+Se o segundo valor tiver o mesmo nome de uma cena:
+
+("Ir para a floresta", "floresta")
+
+o framework abre a cena automaticamente.
+
+AÇÕES ESPECIAIS
+---------------
+Quando uma opção precisa:
+- verificar item;
+- alterar vida;
+- dar pontos;
+- produzir uma consequência especial;
+
+crie um bloco dentro de executar_acao().
+
+TESTE LOCAL
+-----------
+No Windows, dê dois cliques em:
+
+INICIAR_JOGO.bat
+
+Ou execute manualmente:
+
+python -m http.server 8000
+
+e abra:
+
+http://localhost:8000
+
+IMPORTANTE
+----------
+Esta versão NÃO usa:
+- input()
+- terminal
+- worker
+
+Portanto não precisa de SharedArrayBuffer nem do servidor
+especial com cabeçalhos COOP/COEP usado na versão anterior.
+
+REQUISITOS SUGERIDOS PARA A COMPETIÇÃO
+---------------------------------------
+- mínimo de 6 cenas;
+- mínimo de 2 finais;
+- pelo menos 3 itens possíveis;
+- inventário influenciando decisões;
+- vida ou outro recurso de risco;
+- decisões com consequências;
+- tratamento de caminhos inválidos;
+- interface responsiva.
+
+RECURSOS OPCIONAIS
+------------------
+- capa;
+- imagem por cena;
+- vídeo;
+- trilha sonora;
+- efeitos sonoros;
+- pontuação;
+- final secreto;
+- eventos aleatórios;
+- enigmas;
+- personagens;
+- múltiplas trilhas.
