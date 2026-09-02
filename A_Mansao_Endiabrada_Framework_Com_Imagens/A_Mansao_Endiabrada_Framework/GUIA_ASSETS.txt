@@ -1,0 +1,114 @@
+A MANSÃO ENDIABRADA — GUIA DE ASSETS
+==========================================
+
+O main.py foi adaptado ao Framework PyScript Game Jam V2.
+
+A imagem "framework_referencia.png" é a prancha de referência enviada para
+organizar as ações, eventos, locais, itens e finais.
+
+Para substituir as imagens de exemplo, coloque os arquivos abaixo em
+assets/imagens/ com estes nomes:
+
+- aparicao_corredor.jpg
+- assassino_distancia.jpg
+- assassino_sala.jpg
+- assassino_seguranca.jpg
+- banheiro.jpg
+- biblioteca.jpg
+- cartao_seguranca.jpg
+- chave_enferrujada.jpg
+- chave_mestra.jpg
+- chave_pequena.jpg
+- combate.jpg
+- cozinha.jpg
+- diario.jpg
+- documentos.jpg
+- escadas.jpg
+- esconder.jpg
+- escritorio.jpg
+- evento_assassino.jpg
+- evento_passos.jpg
+- faca.jpg
+- final_preso.jpg
+- final_ruim.jpg
+- final_secreto.jpg
+- fita_vhs.jpg
+- fuga_carro.jpg
+- fuga_portao.jpg
+- fusivel.jpg
+- garagem.jpg
+- hall.jpg
+- inicio.png
+- inventario.jpg
+- jardim.jpg
+- kit_medico.jpg
+- lanterna.jpg
+- machado.jpg
+- mascara_ensanguentada.jpg
+- perseguicao.jpg
+- pilhas.jpg
+- policia.jpg
+- porao.jpg
+- radio.jpg
+- respiracao.jpg
+- seguranca.jpg
+- sotao.jpg
+- tunel.jpg
+
+OBSERVAÇÃO
+----------
+Os nomes são referências de arquivo. O projeto original tinha poucas imagens;
+por isso, as novas imagens precisam ser adicionadas por você (ou substituídas
+pelos seus próprios arquivos).
+
+ESTRUTURA NARRATIVA
+-------------------
+Ações: examinar, pegar, usar, abrir, ler, rádio, lanterna, esconder, correr,
+       combater, kit médico e assistir VHS.
+
+Locais: hall, cozinha, biblioteca, banheiro, escritório, escadas, garagem,
+        porão, sótão, jardim, sala de segurança e túnel.
+
+Itens: faca, kit médico, lanterna, pilhas, chave enferrujada, chave pequena,
+       cartão de segurança, gasolina, fusível, rádio, diário, fita VHS,
+       machado, pé de cabra e chave mestra.
+
+Eventos: passos, assassino à distância, aparição no corredor, respiração,
+         máscara ensanguentada, assassino na sala, assassino na segurança,
+         encontro com o assassino e perseguição.
+
+Finais:
+- Fuga pelo portão
+- Fuga de carro
+- Túnel secreto
+- Pedido de socorro / polícia
+- Final secreto: A Verdade de Blackwood
+- Final ruim: A Última Noite
+- Final ruim: Preso para Sempre
+
+FINAL SECRETO
+-------------
+Exige no inventário:
+diario + fita + cartao seguranca + chave mestra
+
+ATUALIZAÇÃO — IMAGENS DA PRANCHA INTEGRADAS
+
+As imagens da prancha enviada pelo usuário foram recortadas e adicionadas em assets/imagens/.
+O main.py foi atualizado para apontar para os arquivos PNG correspondentes.
+
+Correspondências especiais:
+- inicio/entrada_mansao -> hall.png
+- inventario -> usar_item.png
+- documentos -> ler_documentos.png
+- evento_assassino -> encontro_repentino.png
+- evento_passos -> som_passos.png
+- evento_distancia -> assassino_a_distancia.png
+- evento_corredor -> aparicao_corredor.png
+- evento_respiracao -> respiracao_pesada.png
+- evento_mascara -> mascara_ensanguentada.png
+- evento_sala -> assassino_na_sala.png
+- evento_seguranca -> assassino_na_seguranca.png
+- esconder_assassino -> esconder_se.png
+- combate -> combater.png
+- seguranca -> seguranca.png (recorte da cena de segurança)
+- finais -> imagens individuais correspondentes aos oito quadros da prancha
