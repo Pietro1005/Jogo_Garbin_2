@@ -1490,9 +1490,14 @@ def atualizar_status():
     el("pontos").innerText = str(state["pontos"])
 
 
-def mostrar_imagem(caminho):
-    window.frameworkVideo.stop()
+def mostrar_imagem(caminho, titulo=""):
+    """Mostra no HTML a imagem correspondente ao nó/cena escolhida."""
+    if hasattr(window, "frameworkImage"):
+        window.frameworkImage.show(caminho or "", titulo or "")
+        return
 
+    # Fallback caso o helper JS ainda não esteja disponível.
+    window.frameworkVideo.stop()
     imagem = el("imagem-cena")
 
     if not caminho:
@@ -1500,6 +1505,7 @@ def mostrar_imagem(caminho):
         return
 
     imagem.src = caminho
+    imagem.alt = f"Imagem: {titulo}" if titulo else "Imagem da cena atual"
     imagem.style.display = "block"
 
 
@@ -1686,7 +1692,7 @@ def mostrar_cena(nome, permitir_evento=True):
     if video:
         mostrar_video(video, cena.get("video_autoplay", False))
     else:
-        mostrar_imagem(cena.get("image"))
+        mostrar_imagem(cena.get("image"), cena.get("title", nome))
 
     if "audio" in cena:
         if cena["audio"]:
